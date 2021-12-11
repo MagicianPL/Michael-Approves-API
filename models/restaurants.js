@@ -15,6 +15,7 @@ const restaurantsSchema = mongoose.Schema({
   },
   bgImage: {
     type: String,
+    required: false,
   },
   rating: {
     type: Number,
@@ -22,9 +23,10 @@ const restaurantsSchema = mongoose.Schema({
   },
   images: {
     urls: [String],
+    required: false,
   },
 });
 
-const Users = mongoose.model("User", usersSchema);
+const Restaurants = mongoose.model("Restaurants", restaurantsSchema);
 
-module.exports = Users;
+module.exports = Restaurants;
