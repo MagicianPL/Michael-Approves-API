@@ -25,6 +25,11 @@ const restaurantsSchema = mongoose.Schema({
     urls: [String],
     required: false,
   },
+  contact: {
+    address: String,
+    phone: String,
+    required: false,
+  },
 });
 
 const Restaurants = mongoose.model("Restaurants", restaurantsSchema);

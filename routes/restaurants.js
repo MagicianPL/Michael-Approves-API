@@ -28,14 +28,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   console.log(req.body);
   try {
-    const newRestaurant = new Restaurants({
-      name: req.body.name,
-      description: req.body.description,
-      type: req.body.type,
-      bgImage: req.body.bgImage,
-      rating: req.body.rating,
-      images: req.body.image,
-    });
+    const newRestaurant = new Restaurants(req.body);
     console.log(newRestaurant);
     await newRestaurant.save();
     res.status(201).json(newRestaurant);
