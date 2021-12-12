@@ -38,9 +38,21 @@ router.post("/", async (req, res) => {
     });
     console.log(newRestaurant);
     await newRestaurant.save();
-    res.status(200).json(newRestaurant);
+    res.status(201).json(newRestaurant);
   } catch (err) {
     console.log("Somth gone wrong");
+    console.log(err);
+    res.json({ error: err });
+  }
+});
+
+router.patch("/:id", async (req, res) => {
+  try {
+    const restaurant = await Restaurants.findById(req.params.id);
+    Object.assign(restaurant, req.body);
+    await restaurant.save();
+    res.json(restaurant);
+  } catch (err) {
     console.log(err);
     res.json({ error: err });
   }
