@@ -8,6 +8,7 @@ const restaurantsRouter = require("./routes/restaurants");
 
 //PORT
 const port = process.env.PORT || 5000;
+console.log(process.env);
 
 //Connection to DB
 mongoose
