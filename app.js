@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 require("dotenv/config");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const restaurantsRouter = require("./routes/restaurants");
 
 //PORT
@@ -21,6 +22,8 @@ mongoose
 
 //Parser
 app.use(bodyParser.json());
+
+app.use(cors());
 
 //middleware (route for api)
 app.use("/api/v1/restaurants", restaurantsRouter);
